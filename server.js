@@ -38,8 +38,7 @@ app.post('/v2/incidents', (req, res) => {
     const { profile, runId, agentName, publicMarker, sensitive, incident, toolCatalog, policy } = body;
 
     if (!runId || profile !== 'ga5-incident-agent/v2' || !incident) {
-      return.status(400).json({ error: 'Invalid profile or missing mandatory fields' });
-    }
+      return res.status(400).json({ error: 'Invalid profile or missing mandatory fields' });    }
 
     const requestCanonical = getCanonicalJsonString(body);
 
